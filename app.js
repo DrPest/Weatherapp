@@ -71,18 +71,6 @@ $(document).ready(function() {
         $("#temptoggle").text("to Fahrenheit");
       }
     });
-
-    /*var tempstr = $(".temp").text();
-    var temp = tempstr.slice(0, -2);
-    if (tempstr.endsWith("C")) {
-      temp = convToF(parseFloat(temp));
-      $(".temp").text(temp + " F");
-      $("#temptoggle").text("to Celsius");
-    } else {
-      temp = convToC(parseFloat(temp));
-      $(".temp").text(temp + "°C");
-      $("#temptoggle").text("to Fahrenheit");
-    }*/
   });
 
   //Run the function that get's the data from the Open Weather App API, parses it and inserts it into the DOM
