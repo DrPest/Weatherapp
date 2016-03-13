@@ -58,7 +58,21 @@ function getLocation() {
 $(document).ready(function() {
   //Toggle between °C and F
   $("#temptoggle").on("click", function() {
-    var tempstr = $(".temp").text();
+    $(".temp").each(function(){
+      var temp = "";
+      temp = $(this).text().slice(0, -2);
+      if($(this).text().endsWith("C")) {        
+        temp = convToF(parseFloat(temp));
+        $(this).text(temp + " F");
+        $("#temptoggle").text("to Celsius");
+      } else {
+        temp = convToC(parseFloat(temp));
+        $(this).text(temp + "°C");
+        $("#temptoggle").text("to Fahrenheit");
+      }
+    });
+
+    /*var tempstr = $(".temp").text();
     var temp = tempstr.slice(0, -2);
     if (tempstr.endsWith("C")) {
       temp = convToF(parseFloat(temp));
@@ -68,7 +82,7 @@ $(document).ready(function() {
       temp = convToC(parseFloat(temp));
       $(".temp").text(temp + "°C");
       $("#temptoggle").text("to Fahrenheit");
-    }
+    }*/
   });
 
   //Run the function that get's the data from the Open Weather App API, parses it and inserts it into the DOM
