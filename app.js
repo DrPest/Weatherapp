@@ -20,7 +20,7 @@ function getLocation() {
         //Insert location
         $("#loc").text(data.name);
         //Temperature rounded to 1 decimal + °C as a standard
-        $(".temp").text((Math.round(data.main.temp * 10) / 10) + "°C");
+        $(".temp").text(Math.round(data.main.temp * 10) / 10 + "°C");
         //Get the icon from the JSON and insert it into the img URL
         $("#pic").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
       });
