@@ -17,12 +17,15 @@ function getLocation() {
 
       //Get current weather & insert, should be easy enough to understand
       $.getJSON(apiURL, function(data) {
+        //Insert location
         $("#loc").text(data.name);
-        $(".temp").text(Math.round(+data.main.temp * 10) / 10 + "°C");
+        //Temperature rounded to 1 decimal + °C as a standard
+        $(".temp").text((Math.round(data.main.temp * 10) / 10) + "°C");
+        //Get the icon from the JSON and insert it into the img URL
         $("#pic").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
       });
 
-      //Get 5 day forecast and get it into the DOM. Expect further comments.
+      //Get 5 day forecast and get it into the DOM. Expect further comments. Not working correctly atm.
       $.getJSON(apiURL5, function(data) {
         var panelNum = 1;
         for (var i = 0; i < data.list.length; i++) {
