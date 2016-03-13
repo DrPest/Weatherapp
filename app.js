@@ -18,7 +18,7 @@ function getLocation() {
       //Get current weather & insert, should be easy enough to understand
       $.getJSON(apiURL, function(data) {
         $("#loc").text(data.name);
-        $(".temp").text(Math.round(data.main.temp * 10) / 10 + "°C");
+        $(".temp").text(Math.round(+data.main.temp * 10) / 10 + "°C");
         $("#pic").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
       });
 
