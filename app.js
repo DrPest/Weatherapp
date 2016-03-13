@@ -1,8 +1,10 @@
 function convToC(tempF) {
+  //Temp in F is passed in, then converted to °C and rounded to one decimal.
   return Math.round((tempF - 32) / (9 / 5) * 10) / 10;
 }
 
 function convToF(tempC) {
+  //Temp in °C is passed in, then converted to F and rounded to one decimal.
   return Math.round(((tempC * 9 / 5) + 32) * 10) / 10;
 }
 
@@ -54,6 +56,7 @@ function getLocation() {
 }
 
 $(document).ready(function() {
+  //Toggle between °C and F
   $("#temptoggle").on("click", function() {
     var tempstr = $(".temp").text();
     var temp = tempstr.slice(0, -2);
@@ -67,5 +70,7 @@ $(document).ready(function() {
       $("#temptoggle").text("to Fahrenheit");
     }
   });
+
+  //Run the function that get's the data from the Open Weather App API, parses it and inserts it into the DOM
   getLocation();
 });
